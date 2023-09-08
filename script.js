@@ -4,14 +4,15 @@ function getCurrentDayOfWeek() {
     return daysOfWeek[today.getUTCDay()];
 }
 
-function getCurrentUTCTime() {
+function getCurrentUTCTimeInMilliseconds() {
     const now = new Date();
-    const options = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hour12: false };
-    return now.toLocaleTimeString('en-US', options);
+    const utcTimeInMilliseconds = now.getTime();
+    return utcTimeInMilliseconds;
 }
 
+
 document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = getCurrentDayOfWeek();
-document.querySelector('[data-testid="currentUTCTime"]').textContent = getCurrentUTCTime();
+document.querySelector('[data-testid="currentUTCTime"]').textContent = getCurrentUTCTimeInMilliseconds();
 
 
 
